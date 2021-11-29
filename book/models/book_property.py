@@ -5,7 +5,7 @@ class Author(models.Model):
     _name = 'author'
     _description = 'Author'
 
-    name = fields.Char()
+    author_name = fields.Char()
     address = fields.Text()
 
 

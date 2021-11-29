@@ -1,27 +1,97 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="Book_action" model="ir.actions.act_window">
-        <field name="name">Books</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">book.property</field>
-        <field name="view_mode">tree,kanban,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                create your first book
-            </p>
-        </field>
+  <record id="Book_action" model="ir.actions.act_window">
+    <field name="name">Books</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">book.property</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        create your first book
+      </p>
+    </field>
+  </record>
 
-    </record>
-    <menuitem id="menu_library_root"
-              name="Library"
-              sequence="5"/>
+  <!--Submenu author Action -->
+  <record id="author_action" model="ir.actions.act_window">
+    <field name="name">Books Authors</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">author</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        create your first book
+      </p>
+    </field>
+  </record>
 
-    <menuitem id="menu_library_books_root"
-              name="Books"
-              parent="menu_library_root"
-              sequence="5"/>
-    <menuitem id="library_books"
-              name="Book"
-              parent="menu_library_books_root"
-              action="Book_action"/>
+  <!-- Category Action-->
+  <record id="category_action" model="ir.actions.act_window">
+    <field name="name">Books Categories</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">book.category</field>
+    <field name="view_mode">tree,kanban,form</field>
+   </record>
+
+  <!-- Department Action-->
+  <record id="department_action" model="ir.actions.act_window">
+    <field name="name">Books Departments</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">book.department</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+
+  <!-- Publisher Action-->
+  <record id="publisher_action" model="ir.actions.act_window">
+    <field name="name">Books Publisher</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">book.publisher</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+
+  <!-- Racks Action-->
+  <record id="rackDetail_action" model="ir.actions.act_window">
+    <field name="name">Rack Details</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">rack</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+
+  <!-- Shelf Action-->
+  <record id="shelfDetail_action" model="ir.actions.act_window">
+    <field name="name">Shelves Details</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">shelf</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+
+  <!-- Book issued Action-->
+  <record id="book_issued_action" model="ir.actions.act_window">
+    <field name="name">Shelves Details</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">shelf</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+
+  <!--Root Menu-->
+  <menuitem id="menu_library_root" name="Library">
+    <!--First level menues -->
+    <menuitem id="menu_library_books_root" name="Books">
+      <!-- Actions -->
+      <menuitem id="library_books" action="Book_action"/>
+      <menuitem id="library_author" action="author_action"/>
+      <menuitem id="library_category" action="category_action"/>
+      <menuitem id="library_department" action="department_action"/>
+      <menuitem id="library_publisher" action="publisher_action"/>
+      <menuitem id="library_rack_detail" action="rackDetail_action"/>
+      <menuitem id="library_shelf_detail" action="shelfDetail_action"/>
+    </menuitem>
+
+    <menuitem id="menu_library_issued_flevel" name="Books">
+      <menuitem id="book_issed" action="book_issued_action"/>
+    </menuitem>
+  </menuitem>
+
+
+
 </odoo>
