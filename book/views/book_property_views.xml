@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!--<record id="book_property_form" model="ir.ui.view">
-    <field name="name">Book Property</field>
+  <!--Book Tree View -->
+  <record id="book_property_tree" model="ir.ui.view">
+    <field name="name">Books</field>
     <field name="model">book.property</field>
     <field name="arch" type="xml">
       <tree>
-        Book Name
         <field name="name"/>
-        Book Price
         <field name="price"/>
-        <field name="date"/>
+        <field name="author"/>
       </tree>
     </field>
-  </record>-->
+  </record>
 
-
-  <record id="book_property_view" model="ir.ui.view">
+  <!-- book form view
+  <record id="book_property_form" model="ir.ui.view">
     <field name="name">Book Property</field>
     <field name="model">book.property</field>
     <field name="arch" type="xml">
@@ -27,10 +26,96 @@
           <notebook>
             <page string="Author">
               <field name="author"/>
+              <field name="address"/>
+            </page>
+            <page string="Book Detail">
+              <group>
+                <group>
+                  <field name="price"/>
+                  <field name="isbn"/>
+                  <field name="author_ids"/>
+                  <field name="category_id"/>
+                  <field name="department_id"/>
+                </group>
+                <group>
+                  <field name="barcode"/>
+                  <field name="publisher_id"/>
+                  <field name="edition"/>
+                  <field name="date"/>
+                  <field name="shelf_id"/>
+                </group>
+              </group>
             </page>
           </notebook>
         </sheet>
       </form>
+    </field>
+  </record>-->
+
+  <!--Book author tree View -->
+  <record id="book_author_tree" model="ir.ui.view">
+    <field name="name">Author</field>
+    <field name="model">author</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="author_name"/>
+        <field name="address" />
+      </tree>
+    </field>
+  </record>
+
+  <!--Book department Tree View -->
+  <record id="book_department_tree" model="ir.ui.view">
+    <field name="name">Department</field>
+    <field name="model">book.department</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="department_name"/>
+      </tree>
+    </field>
+  </record>
+
+   <!--Book category Tree View -->
+  <record id="book_category_tree" model="ir.ui.view">
+    <field name="name">Category</field>
+    <field name="model">book.category</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="Category_name"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--Book publisher Tree View -->
+  <record id="book_publisher_tree" model="ir.ui.view">
+    <field name="name">Publisher</field>
+    <field name="model">book.publisher</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="publisher_name"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--Book rack Tree View -->
+  <record id="book_rack_tree" model="ir.ui.view">
+    <field name="name">Rack</field>
+    <field name="model">rack</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--Book shelf Tree View -->
+  <record id="book_property_tree" model="ir.ui.view">
+    <field name="name">Shelf</field>
+    <field name="model">shelf</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+      </tree>
     </field>
   </record>
 </odoo>

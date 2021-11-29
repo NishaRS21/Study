@@ -74,7 +74,7 @@
   </record>
 
   <!--Root Menu-->
-  <menuitem id="menu_library_root" name="Library">
+  <menuitem id="menu_library_root" name="Library" web_icon="book,static/description/index.png">
     <!--First level menues -->
     <menuitem id="menu_library_books_root" name="Books">
       <!-- Actions -->
