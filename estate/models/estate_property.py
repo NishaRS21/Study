@@ -13,11 +13,9 @@ class EstatePropertyOffer(models.Model):
     property_id = fields.Many2one('estate.property')
     property_type_id = fields.Many2one(related='property_id.property_type_id', store=True)
 
-
     def action_accepted(self):
         for record in self:
             record.status = 'accepted'
-            # Set Buyer and selling price
             record.property_id.selling_price = record.price
             record.property_id.buyer_id = record.partner_id
 
@@ -50,6 +48,7 @@ class EstatePropertyType(models.Model):
     def _compute_offer_count(self):
         for record in self:
             record.offer_count = len(record.offer_ids)
+
 
 class EstateProperty(models.Model):
     _name = 'estate.property'
@@ -121,14 +120,14 @@ class EstateProperty(models.Model):
     def action_sold(self):
         # print("\n\n In action sold")
         for record in self:
-            if record.state=='cancel':
+            if record.state == 'cancel':
                 raise UserError("Cancel Property cannot be sold")
             record.state = 'sold'
             # return some action
 
     def action_cancel(self):
         for record in self:
-            if record.state=='sold':
+            if record.state == 'sold':
                 raise UserError("Sold Property cannot be canceled")
             record.state = 'cancel'
 
@@ -138,3 +137,12 @@ class EstateProperty(models.Model):
             if record.living_area < record.garden_area:
                 raise ValidationError("Garden cannot be bigger than living area")
 
+    def open_offers(self):
+        return{
+            "name" : "offers",
+            "type":"ir.action_window",
+            "res_model":"este.proprty.offer",
+            "views":[[False, 'tree']],
+            "target":"new",
+            "domain":[('property_id', '=', self.id)]
+        }

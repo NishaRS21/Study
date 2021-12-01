@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="real_estate_properties_action" model="ir.actions.act_window">
-        <field name="name">Advertisement</field>
+        <field name="name">Properties</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">kanban,tree,form</field>
