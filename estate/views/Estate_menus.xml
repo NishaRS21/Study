@@ -20,15 +20,14 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_real_estate_root" name="Real Estate">
+    <menuitem id="menu_real_estate_root" name="Real Estate" web_icon="estate,static/description/real-estate.png">
         <menuitem id="real_estate_advertise_root" name="Advertisements"><!--parent="menu_real_estate_root"-->
             <menuitem id="menu_real_estate_action" action="real_estate_properties_action"/>
             <menuitem id="menu_real_estate_offer_action" action="real_estate_properties_offer_action"/>
         </menuitem>
+        <menuitem id="menu_real_estate_property_type" name="setting">
+            <menuitem id="menu_real_estate_property_type_action" action="estate_property_type_action"/>
+        </menuitem>
     </menuitem>
-
-    <menuitem id="menu_real_estate_property_type" name="Settings" parent="menu_real_estate_root"/>
-    <menuitem id="menu_real_estate_property_type_action" parent="menu_real_estate_property_type" action="estate_property_type_action"/>
-
 
 </odoo>
